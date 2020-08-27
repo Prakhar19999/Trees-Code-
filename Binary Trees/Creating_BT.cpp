@@ -40,15 +40,6 @@ void insert(Node *temp,ll key)
 		}
 	}
 }
-void inorder(Node* temp) 
-{ 
-    if (!temp) 
-        return; 
-  
-    inorder(temp->leftchild); 
-    cout << temp->data<< " "; 
-    inorder(temp->rightchild); 
-} 
 int main()
 {
 	ll n,a;cin>>n;
