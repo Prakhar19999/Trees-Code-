@@ -16,30 +16,39 @@ void insert(Node *temp,ll key)
 	{
 		Node*z=q.front();
 		q.pop();
-		if(z->leftchild==NULL && z->data>key)
+		if(z->leftchild==NULL)
 		{
 			t=new Node();
 			t->data=key;
 			z->leftchild=t;
 			break;
 		}
-		else if(z->leftchild!=NULL)
+		else
 		{
 			q.push(z->leftchild);
 		}
-		if(z->rightchild==NULL && z->data<key)
+		if(z->rightchild==NULL)
 		{
 			t=new Node();
 			t->data=key;
 			z->rightchild=t;
 			break;
 		}
-		else if(z->rightchild!=NULL)
+		else
 		{
 			q.push(z->rightchild);
 		}
 	}
 }
+void inorder(Node* temp) 
+{ 
+    if (!temp) 
+        return; 
+  
+    inorder(temp->leftchild); 
+    cout << temp->data<<" "; 
+    inorder(temp->rightchild); 
+} 
 int main()
 {
 	ll n,a;cin>>n;
@@ -60,5 +69,4 @@ int main()
 		}
 		else insert(root,v[i]);
 	}
-	inorder(root);
 }
